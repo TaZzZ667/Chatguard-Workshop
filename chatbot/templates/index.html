@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Dangers des réseaux sociaux</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Menu de gauche avec sous-catégories -->
+            <div class="col-md-4">
+                <h2 class="section-title">Problématiques</h2>
+                <div id="options" class="list-group shadow-sm p-3 mb-5 bg-body rounded">
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(1)">Escroquerie</button>
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(2)">Usurpation d'identité</button>
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(3)">Chantage</button>
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(4)">Vol d'informations</button>
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(5)">Cyberharcèlement</button>
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(6)">Désinformation</button>
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(7)">Diffamation</button>
+                    <button class="list-group-item list-group-item-action" onclick="handleOption(8)">Addiction</button>
+                </div>
+            </div>
+
+            <!-- Zone de chat à droite avec chatbot -->
+            <div class="col-md-8">
+                <h2 class="section-title">Conseils personnalisés et ChatGuard</h2>
+                <div id="chatbox" class="chatbox shadow-sm p-3 mb-5 bg-body rounded">
+                    <p class="botText">Bienvenue ! Sélectionnez une problématique à gauche ou décrivez votre problème ci-dessous pour obtenir des conseils.</p>
+                </div>
+
+                <!-- Zone d'entrée utilisateur (chatbot), cachée par défaut -->
+                <div id="chatInputArea" class="chat-input-area" style="display: none;">
+                    <div class="input-group">
+                        <input type="text" id="userInput" class="form-control" placeholder="Décrivez votre problème ici...">
+                        <button class="btn btn-primary" onclick="handleUserInput()">Envoyer</button>
+                    </div>
+                </div>
+
+                <!-- Bouton pour terminer la conversation -->
+            <!-- Bouton pour terminer la conversation -->
+                <div id="endConversationArea" style="display: none; text-align: center; margin-top: 20px;">
+                    <button class="btn btn-danger" onclick="endConversation()">Terminer la conversation</button>
+                </div>
+
+
+                                <!-- Section pour la notation -->
+                <div id="ratingArea" style="display: none; text-align: center; margin-top: 20px;">
+                    <p>Merci d'avoir utilisé notre service ! Veuillez laisser un commentaire et évaluer l'échange :</p>
+                    <!-- Champ pour ajouter un commentaire -->
+                    <textarea id="ratingComment" placeholder="Laissez un commentaire ici..." rows="3" style="width: 100%; margin-bottom: 10px;"></textarea>
+                    
+                    <p>Veuillez maintenant évaluer notre service :</p>
+                    <div class="rating">
+                        <a href="#5" title="Donner 5 étoiles">★</a>
+                        <a href="#4" title="Donner 4 étoiles">★</a>
+                        <a href="#3" title="Donner 3 étoiles">★</a>
+                        <a href="#2" title="Donner 2 étoiles">★</a>
+                        <a href="#1" title="Donner 1 étoile">★</a>
+                    </div>
+                </div>
+
+
+                <!-- Bandeau en bas pour le chatbot -->
+                <div id="bottomChatbar">
+                    <input type="text" id="bottomChatInput" placeholder="Posez votre question...">
+                    <button id="bottomChatButton" onclick="handleUserInput()">Envoyer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
